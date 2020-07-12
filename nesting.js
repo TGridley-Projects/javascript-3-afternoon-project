@@ -80,11 +80,14 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 function removeDuplicates(){
   for (let i=0; i<workplaceAccidents.length-1; i++){
     for (let j=1; j<workplaceAccidents.length; j++){
-      if (workplaceAccidents[i] === workplaceAccidents[j]){workplaceAccidents.splice([j],1)}
+      if(workplaceAccidents[i] === workplaceAccidents[j] && i !== j){workplaceAccidents.splice([i],1)
+      i--}
     }
   }
   return workplaceAccidents
 }
+
+
 
 
 ////////// PROBLEM 3 //////////
@@ -112,8 +115,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -154,7 +157,13 @@ var myCar = {
 */
 
 //Code Here
-
+function recordCleaner(){
+  let oops = myCar.accidents
+  for (let i = 0; i<oops.length; i++){
+    myCar.accidents[i].atFaultForAccident = false
+  }
+  return myCar
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -173,5 +182,13 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
-
+function looper(){
+  for(i=0; i<numsArr.length; i++){
+    for(j=0; j<numsArr[i].length; j++){
+      if (numsArr[i][j] % 2 === 0){numsArr[i][j] = `even`
+     } else {numsArr[i][j] = `odd`}
+    }
+  }
+  return numsArr
+}
 
